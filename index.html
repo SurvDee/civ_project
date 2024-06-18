@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Use correct character set. -->
+        <meta charset="utf-8">
+        <!-- Tell IE to use the latest, best version. -->
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <!-- Make the app on mobile take up the full browser screen and disable user scaling. -->
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>Stoeckach Energy Dashboard</title>
+        <!-- The Cesium library. -->
+        <script src="https://cesium.com/downloads/cesiumjs/releases/1.81/Build/Cesium/Cesium.js"></script>
+        <link href="https://cesium.com/downloads/cesiumjs/releases/1.81/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+		<!-- The Chart.js library. -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="index.css" media="screen">
+	</head>
+    <body>
+        <!-- defining container to keep cesium viewer and chart -->
+        <div class="container">
+            <div class="cesium-container" id="cesiumContainer"></div>
+            <div>
+                <div class="chart-container" >
+                    <canvas id="myChart1"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- defining menu panel -->
+        <div class="backdrop" id="menu">
+            <h2>Stoeckach Energy Dashboard</h2>		 
+			<div class="nowrap">
+                <input id="3dbuildings" name="source" type="radio" checked/>
+                <label for="3dbuildings">3D Buildings</label>
+            </div>
+            <div class="nowrap">
+                <input id="heatdemand" name="source" type="radio"/>
+                <label for="heatdemand">Sp. Heating Demand</label>
+            </div>
+			<div id = "legend" style="display: none;">
+				<hr color='white'>
+				<div class='my-legend' id="legendcontainer">
+					<div class='legend-title'>Sp. Heating Demand (kWh/m<sup>2</sup>.a)</div>
+					<div class='legend-scale'>
+						<ul class='legend-labels'>
+							<li><span style='background:#33ACFF;'></span>Less than 60</li>
+							<li><span style='background:#2AFF00;'></span>60 to 120</li>
+							<li><span style='background:#FFFF00;'></span>120 to 170</li>
+							<li><span style='background:#FFA200;'></span>170 to 230</li>
+							<li><span style='background:#FF0000;'></span>More than 230</li>
+							<li><span style='background:#000000;'></span>None Heated / No Data</li>
+						
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<a href="https://www.hft-stuttgart.de/" target='_blank'>
+        <div class="credit"></div>
+        </a>
+        <!-- javascript -->
+        <script src="app.js"></script>
+    </body>
+</html>
